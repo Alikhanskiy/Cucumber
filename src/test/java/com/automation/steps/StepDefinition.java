@@ -1,10 +1,15 @@
 package com.automation.steps;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.awt.*;
+import java.util.List;
+
 public class StepDefinition {
     @Before
     public void setUp(){
@@ -81,5 +86,41 @@ public class StepDefinition {
 
     @Then("verify user could not access home page")
     public void verifyUserCouldNotAccessHomePage() {
+        
+    }
+
+    @Then("verify country dropdown displayed on cart page")
+    public void verifyCountryDropdownDisplayedOnCartPage() {
+
+    }
+
+    @And("verify dropdown has following values")
+    public void verifyDropdownHasFollowingValues(DataTable dt) {
+        List<String> countries = dt.asList();
+        for(String country: countries){
+            System.out.println(country);
+        }
+    }
+
+    @When("user click on checkout button")
+    public void userClickOnCheckoutButton() {
+
+    }
+
+    @Then("verify user is on checkout page")
+    public void verifyUserIsOnCheckoutPage() {
+
+    }
+
+    @And("validate following data on checkout page")
+    public void validateFollowingDataOnCheckoutPage(DataTable dt) {
+        List<List<String>> listOfListOfData = dt.asLists();
+        for(List<String> packet : listOfListOfData){
+            for(String cookie : packet){
+                System.out.print(cookie+" ");
+            }
+            System.out.println();
+        }
+
     }
 }
